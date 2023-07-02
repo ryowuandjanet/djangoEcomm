@@ -19,17 +19,31 @@
         <br><br><h4>Product Features</h4>
         <ul class="fs-5" style="font-family: Times New Roman', Times, serif;">
           <li>{{ product.description }}</li>
+          <li>Compisition: {{ product.composition }}</li>
+          <li>Use: {{product.prodapp}}</li>
         </ul>
-       <div class="buttons row flex" style="font-family: Times New Roman', Times, serif;">
-          <button type="submit" class="d-grid gap-2 btn1 btn btn-danger p-1 m-1 btn-lg text-decoration-none text-white">
+       
+        <form action="/add-to-cart" class="d-inline">
+          <input type="hidden" name="prod_id" value={{product.id}}>
+          <button type="submit" class="btn btn-primary shadow px-5 py-2">
             Add to Cart
           </button>
-          <div class="btn btn-dark p-1 m-1 btn-lg">
-            <a href="#" class="text-decoration-none text-white">
-              Buy Now
-            </a>
-          </div>
-       </div>
+        </form>  
+        
+        <a href="{% url 'showcart' %}" class="btn btn-warning shadow px-5 py-2 ms-4">
+          Buy Now
+        </a>
+
+        {% if wishlist %}
+          <a pid={{product.id}} class="minus-wishlist btn btn-danger shadow px-5 py-2 ms-4">
+            <i class="fas fa-heart fa-lg"></i>
+          </a>
+        {% else %}
+          <a pid={{product.id}} class="plus-wishlist btn btn-success shadow px-5 py-2 ms-4">
+            <i class="fas fa-heart fa-lg"></i>
+          </a>
+        {% endif %}
+
       </div>
     </div>
   </div>
