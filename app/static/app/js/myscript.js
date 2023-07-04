@@ -1,4 +1,5 @@
-$('.plus-cart').click( function (){
+$('.plus-cart').click( function (e){
+  e.preventDefault();
   var id = $(this).attr("pid").toString();
   var eml = this.parentNode.children[2]
   console.log("pid = ",id)
@@ -15,7 +16,8 @@ $('.plus-cart').click( function (){
   })    
 });
 
-$('.minus-cart').click( function (){
+$('.minus-cart').click( function (e){
+  e.preventDefault();
   var id = $(this).attr("pid").toString();
   var eml = this.parentNode.children[2]
   $.ajax({
@@ -30,7 +32,8 @@ $('.minus-cart').click( function (){
   })    
 });
 
-$('.remove-cart').click( function (){
+$('.remove-cart').click( function (e){
+  e.preventDefault();
   var id = $(this).attr("pid").toString();
   var eml = this
   $.ajax({
@@ -45,7 +48,8 @@ $('.remove-cart').click( function (){
   })    
 });
 
-$('.plus-wishlist').click( function (){
+$('.plus-wishlist').click( function (e){
+  e.preventDefault();
   var id = $(this).attr("pid").toString();
   $.ajax({
     type:"GET",
@@ -57,7 +61,8 @@ $('.plus-wishlist').click( function (){
   })    
 });
 
-$('.minus-wishlist').click( function (){
+$('.minus-wishlist').click( function (e){
+  e.preventDefault();
   var id = $(this).attr("pid").toString();
   $.ajax({
     type:"GET",
