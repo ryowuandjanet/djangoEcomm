@@ -4,7 +4,7 @@
 
 {% block main-content %}
 <div class="container my-5">
-  <div class="row">
+  <div class="row pt-5">
     <div class="col-sm-8">
       <div class="row">
         {% for prod in product %}
@@ -17,7 +17,7 @@
                   Rs. {{prod.discounted_price}}/-
                   <small class="fw-light text-decoration-line-through">
                     {{prod.selling_price}}
-                  </small>}
+                  </small>
                 </div>
               </div>
             </a>

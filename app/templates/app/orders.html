@@ -4,12 +4,12 @@
 
 {% block main-content %}
   <div class="container my-5">
-    <div class="row">
-      <h3>Welcome <span class="text-capitalize">{{request.user}}</span></h3>
+    <div class="row pt-5">
+      <h3>歡迎 <span class="text-capitalize">{{request.user}}</span></h3>
     
       <div class="col-sm-2 border-end">
         <ul class="list-unstyled">
-          <li class="d-grid"><a href="{% url 'orders' %}" class="btn btn-primary">Orders</a></li>
+          <li class="d-grid"><a href="{% url 'orders' %}" class="btn btn-primary">訂單</a></li>
         </ul>
       </div>
 
@@ -22,12 +22,12 @@
               </a>
             </div>
             <div class="col-sm-7">
-              <p>Product : {{ op.product.title }}</p>
-              <p>Quantity : {{ op.quantity }}</p>
-              <p>Price : {{ op.total_cost }}</p>
+              <p>產品名稱 : {{ op.product.title }}</p>
+              <p>數量 : {{ op.quantity }}</p>
+              <p>價格 : {{ op.total_cost }}</p>
             </div>
             <div class="col-sm-3">
-              <p> Order Status : {{ op.status }}</p>
+              <p> 訂單狀態 : {{ op.status }}</p>
 
               {% if op.status == 'Accepted' %}
                 <div class="progress">

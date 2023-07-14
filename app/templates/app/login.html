@@ -1,12 +1,12 @@
 {% extends 'app/base.html' %}
 {% load static %}
-{% block title %}Login{% endblock title %}
+{% block title %}登錄{% endblock title %}
 
 {% block main-content %}
   <div class="container">
     <div class="row my-3">
       <div class="col-sm-6 offset-sm-3">
-        <h3>Login</h3>
+        <h3>登錄</h3>
         <hr>
 
         <form action="" method="post" novalidate class="shadow p-5">
@@ -16,11 +16,11 @@
             <br>
           {% endfor %}
 
-          <small><a href="{% url 'password_reset' %}">Forgot Password ?</a></small><br>
-          <input type="submit" value="Login" class="btn btn-primary mt-4"><br>
+          <small><a href="{% url 'password_reset' %}">忘記密碼 ?</a></small><br>
+          <input type="submit" value="登錄" class="btn btn-primary mt-4"><br>
           <div class="text-center text-primary fw-bold">
-            <small> New User ?<a href="{% url 'customerregistration' %}" class="text-danger">
-              Create an account ?
+            <small> 新的使用者 ?<a href="{% url 'customerregistration' %}" class="text-danger">
+              建立新帳號 ?
             </a></small>
           </div>
           {% if form.non_field_errors %}

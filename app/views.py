@@ -118,6 +118,7 @@ class ProfileView(View):
             reg = Customer(user=user,name=name,locality=locality,city=city,mobile=mobile,state=state,zipcode=zipcode)
             reg.save()
             messages.success(request,"success")
+            return redirect('home')
         else:
             messages.warning(request,"fail")
         return render(request,'app/profile.html',locals())

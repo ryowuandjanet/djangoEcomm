@@ -4,13 +4,13 @@
 
 {% block main-content %}
 <div class="container my-5">
-  <div class="row">
-    <h3>Welcome <span class="text-capitalize">{{request.user}}</span></h3>
+  <div class="row pt-5">
+    <h3>歡迎 <span class="text-capitalize">{{request.user}}</span></h3>
   
     <div class="col-sm-2 border-end">
       <ul class="list-unstyled">
-        <li class="d-grid"><a href="{% url 'profile' %}" class="btn btn-primary">profile</a></li>
-        <li class="d-grid"><a href="{% url 'address' %}" class="btn">Address</a></li>
+        <li class="d-grid"><a href="{% url 'profile' %}" class="btn btn-primary">簡介</a></li>
+        <li class="d-grid"><a href="{% url 'address' %}" class="btn">住址</a></li>
       </ul>
     </div>
 
@@ -19,15 +19,15 @@
         <div class="col-sm-6">
           <div class="card m-2">
             <div class="card-body">
-              <h3>Address {{forloop.counter}}</h3>
-              <p>Name: {{ ad.name }}</p>
-              <p>Locality: {{ ad.locality }}</p>
-              <p>Mobile: {{ ad.mobile }}</p>
-              <p>City: {{ ad.city }}</p>
-              <p>State: {{ ad.state }}</p>
-              <p>PinCode: {{ ad.zipcode }}</p>
+              <h3>住址 {{forloop.counter}}</h3>
+              <p>姓名: {{ ad.name }}</p>
+              <p>所在地: {{ ad.locality }}</p>
+              <p>手機: {{ ad.mobile }}</p>
+              <p>縣市: {{ ad.city }}</p>
+              <p>狀態: {{ ad.state }}</p>
+              <p>郵政編碼: {{ ad.zipcode }}</p>
               <p class="text-center">
-                <a href="{% url 'updateAddress' pk=ad.id %}" type="button" class="btn btn-success">Update</a>
+                <a href="{% url 'updateAddress' pk=ad.id %}" type="button" class="btn btn-success">更新</a>
               </p>
             </div>
           </div>

@@ -42,3 +42,11 @@ class CustomerProfileForm(forms.ModelForm):
             'state':forms.Select(attrs={'class': 'form-control'}),
             'zipcode':forms.NumberInput(attrs={'class': 'form-control'}),
         }
+    def __init__(self, *args, **kwargs):
+        super(CustomerProfileForm, self).__init__(*args, **kwargs)
+        self.fields['name'].label = "姓名"
+        self.fields['locality'].label = "地點"
+        self.fields['city'].label = "城市"
+        self.fields['mobile'].label = "手機"
+        self.fields['state'].label = "國家"
+        self.fields['zipcode'].label = "郵遞區號"

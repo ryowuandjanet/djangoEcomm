@@ -1,5 +1,4 @@
-$('.plus-cart').click( function (e){
-  e.preventDefault();
+$('.plus-cart').click( function (){
   var id = $(this).attr("pid").toString();
   var eml = this.parentNode.children[2]
   console.log("pid = ",id)
@@ -32,8 +31,7 @@ $('.minus-cart').click( function (e){
   })    
 });
 
-$('.remove-cart').click( function (e){
-  e.preventDefault();
+$('.remove-cart').click( function (){
   var id = $(this).attr("pid").toString();
   var eml = this
   $.ajax({

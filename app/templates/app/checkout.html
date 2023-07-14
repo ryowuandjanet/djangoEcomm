@@ -12,25 +12,26 @@
       {% endfor %}
     {% endif %}
     <div class="row mt-5">
-      <div class="col-sm-6">
-        <h4>Order Summary</h4>
+      <div class="col-sm-6 pt-5">
+        <h4>訂單摘要</h4>
         <hr>
         {% for item in cart_items %}
           <div class="card mb-2">
             <div class="card-body">
-              <h5> Product: {{item.product.title}}</h5>
-              <p>Quantity: {{item.quantity}}</p>
-              <p class="fw-bold">Price: {{item.product.discounted_price}}</p>
+              <h5> 產品名稱: {{item.product.title}}</h5>
+              <p>數量: {{item.quantity}}</p>
+              <p class="fw-bold">價格: {{item.product.discounted_price}}</p>
             </div>
           </div>
         {% endfor %}
-        <p class="fw-bold">Total Cost + Rs. 40 = {{totalamount}}</p>
-        <small>Term and Condition: Hello world</small>
+        <p class="fw-bold">總金額 + Rs. 40 = {{totalamount}}</p>
+        <small>條件條款：是指合同中那些能否履行合同對實現所簽訂合同的商業目的關係最為密切的條款</small>
       </div>
 
-      <div class="col-sm-4 offset-sm-1">
-        <h4>Select Shipping Address</h4>
+      <div class="col-sm-4 offset-sm-1 pt-5">
+        <h4>選擇送貨地址</h4>
         <hr>
+        {% if add %}
         <form method="post" id="myform">
           {% csrf_token %}
           {% for ad in add %}
@@ -44,19 +45,27 @@
             <div class="form-check mt-2 mb-5">
               <input type="radio" name="custid" id="custadd{{forloop.counter}}" value="{{ad.id}}" class="form-check-input">
               <label for="custadd{{forloop.counter}}" class="form-check-label fw-bold">
-                Address:{{forloop.counter}}
+                住址:{{forloop.counter}}
               </label>
             </div>
           {% endfor %}
           <div class="form-check mb-3">
-            <label for="totamount" class="form-label">Total Amount</label>
+            <label for="totamount" class="form-label">總金額</label>
             <input type="number" name="totamount" class="form-control" value={{totalamount}} readonly>
           </div>
           <div class="text-end">
             <!-- button type="submit" id="rzp-button1" class="btn btn-warning mt-3 px-5 fw-bold">Payment</button> -->
-            <button id="rzp-button1" class="btn btn-warning mt-3 px-5 fw-bold">Payment</button>
+            <button id="rzp-button1" class="btn btn-warning mt-3 px-5 fw-bold">支付</button>
           </div>
         </form>
+        {% else %}
+          <div class="my-2">
+            請到下列"個人資料"去新增出貨住址
+          </div>
+          <div>
+            <a href="{% url 'profile' %}" class=" btn btn-primary">個人資料</a>
+          </div>
+        {% endif %} 
       </div>
     </div>
   </div>
